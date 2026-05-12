@@ -24,6 +24,8 @@ public class ShoppingCartApp {
     private AgregarProductoAlCarritoUseCase agregarProductoAlCarritoUseCase;
     private ConfirmarCompraUseCase confirmarCompraUseCase;
     private IncreaseAvailableQuantityUseCase increaseAvailableQuantityUseCase;
+    private ClearCartUseCase clearCartUseCase;
+
 
     public ShoppingCartApp() {
         productRepository = new InMemoryProductRepository();
@@ -33,6 +35,7 @@ public class ShoppingCartApp {
         agregarProductoAlCarritoUseCase = new AgregarProductoAlCarritoUseCase(productRepository, cartRepository);
         confirmarCompraUseCase = new ConfirmarCompraUseCase(cartRepository, customerRepository, purchaseRepository, productRepository);
         increaseAvailableQuantityUseCase = new IncreaseAvailableQuantityUseCase(productRepository);
+        clearCartUseCase = new ClearCartUseCase(cartRepository);
 
         cargarDatosIniciales();
     }
@@ -43,7 +46,8 @@ public class ShoppingCartApp {
                            PurchaseRepository purchaseRepository,
                            AgregarProductoAlCarritoUseCase agregarProductoAlCarritoUseCase,
                            ConfirmarCompraUseCase confirmarCompraUseCase,
-                           IncreaseAvailableQuantityUseCase increaseAvailabeQuantityUseCase) {
+                           IncreaseAvailableQuantityUseCase increaseAvailabeQuantityUseCase,
+                           ClearCartUseCase clearCartUseCase) {
         this.productRepository = productRepository;
         this.cartRepository = cartRepository;
         this.customerRepository = customerRepository;
@@ -51,6 +55,7 @@ public class ShoppingCartApp {
         this.agregarProductoAlCarritoUseCase = agregarProductoAlCarritoUseCase;
         this.confirmarCompraUseCase = confirmarCompraUseCase;
         this.increaseAvailableQuantityUseCase = increaseAvailabeQuantityUseCase;
+        this.clearCartUseCase = clearCartUseCase;
     }
 
     private void cargarDatosIniciales() {
@@ -127,5 +132,9 @@ public class ShoppingCartApp {
 
     public OperationResult increaseAvailableQuantity(int productId) {
         return increaseAvailableQuantityUseCase.execute(productId);
+    }
+
+    public OperationResult clearCart() {
+        return clearCartUseCase.execute();
     }
 }
