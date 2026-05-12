@@ -8,11 +8,11 @@ The design an implementation stages follow the principle of clean architecture.
 
 The increment of this repository consisted of developing the use case: 
 
-### _* Aumentar la cantidad disponible de un producto en una unidad_
+### _Vaciar el carrito_
 
 ## Previous Increments:
 
 Previous use cases implemented were: 
-
-* _Agregar un producto al carrito_ 
+* _Aumentar la cantidad disponible de un producto en una unidad_
 * _Confirmar la compra de un carrito_
+* _Agregar un producto al carrito_ 
