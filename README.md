@@ -8,7 +8,7 @@ The design an implementation stages follow the principle of clean architecture.
 
 The increment of this repository consisted of developing the use case: 
 
-### _Vaciar el carrito_
+* ### _Vaciar el carrito_
 
 ## Previous Increments:
 
