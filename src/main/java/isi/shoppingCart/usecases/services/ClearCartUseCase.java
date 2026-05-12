@@ -16,13 +16,14 @@ public class ClearCartUseCase {
 
     public OperationResult execute() {
         Cart cart = cartRepository.getCart();
+        OperationResult result = null;
 
-        if (cart == null || cart.getItems().isEmpty()) {
-            return OperationResult.fail("El carrito ya está vacío.");
+        if (cart == null) result = OperationResult.fail("Error interno, NO EXISTE carrito.");
+        else if (cart.getItems().isEmpty()) result = OperationResult.fail("El carrito ya está vacío.");
+        else {
+            cartRepository.save(new Cart());
+            result = OperationResult.ok("El Carrito ha sido vaciado.");
         }
-
-        cartRepository.save(new Cart());
-
-        return OperationResult.ok("El Carrito ha sido vaciado");
+        return result;
     }
 }
