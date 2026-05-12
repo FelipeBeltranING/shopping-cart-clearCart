@@ -10,7 +10,7 @@
         <module name="shoping-cart-confirmar-compra" />
         <module name="shopping-cart" />
         <module name="shopping-cart-confirmar-compra" />
-        <module name="shopping-cart-IncreaseAvaiableQuantity" />
+        <module name="shopping-cart-clearCart" />
       </profile>
     </annotationProcessing>
   </component>
